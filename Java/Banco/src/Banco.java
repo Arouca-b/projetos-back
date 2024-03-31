@@ -1,11 +1,10 @@
-package LP3.aula02.src;
-
+package Banco.src;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.ArrayList;
 
 //Autor Breno Arouca
-//Última atualiazação: 30/03/2024
+//Última atualiazação: 31/03/2024
 
 
 
@@ -90,7 +89,9 @@ public class Banco {
         System.out.println("3 - Pix;");
         System.out.println("4 - Alterar Nome;");
         System.out.println("5 - Dados da Conta;");
-        System.out.println("6 - Alterar Senha;");        
+        System.out.println("6 - Alterar Senha;");
+        System.out.println("7 - Histórico pix;");        
+
         System.out.println("\n0 - Sair;\n");
     }
 
@@ -188,7 +189,13 @@ public class Banco {
                 case 6:
 
                     //Alterar senha
+                    break;
 
+                case 7:
+                    clear();
+                    cliente.getTransacoes();
+                    System.out.println("\t\t\tPressione ENTER para continuar\n");
+                    inputText.nextLine();
                     break;
             }
         }while(op2!=0);
@@ -291,6 +298,7 @@ public class Banco {
                 if (cliente.validaSaldo(valor)) {
                     cliente.pix(valor, listaClientes.get(i));
                     mensagem();
+                    
                 }else{
                     System.out.println("\n\nSALDO INDISPONÍVEL!\n\n");
                 }

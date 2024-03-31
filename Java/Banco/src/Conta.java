@@ -1,4 +1,6 @@
-package LP3.aula02.src;
+package Banco.src;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Conta {
     private String nome;
@@ -7,6 +9,9 @@ public class Conta {
     private double saldo;
     private String cpf;
     private String senha;
+    private int qtdTransacao;
+    private ArrayList<Transacao> transacoes = new ArrayList<>();
+
 
     public Conta(String nome, String nConta, String agencia, String cpf, String senha) {
         this.nome = nome;
@@ -69,6 +74,20 @@ public class Conta {
     public void pix(double valor, Conta recebedor){
         this.sacar(saldo);
         recebedor.deposito(valor);
+        transacao(valor, recebedor.getNome());
+    }
+
+    public void transacao(double valor, String recebedor){
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        Transacao newTransacao = new Transacao(valor, recebedor, formato);
+        this.transacoes.add(newTransacao);
+        this.qtdTransacao++;
+    }
+
+    public void getTransacoes(){
+        for(int i = 0; i < qtdTransacao;i++){
+            transacoes.get(i).getTransacao();
+        }
     }
 
     public void getConta() {
