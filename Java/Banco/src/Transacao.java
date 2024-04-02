@@ -8,7 +8,6 @@ public class Transacao {
     private LocalDateTime data;
 
     public Transacao(){
-        
     }
 
     public Transacao(double valor, String recebedor, DateTimeFormatter formato){
