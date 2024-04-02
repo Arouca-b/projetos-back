@@ -296,7 +296,7 @@ public class Banco {
                 System.out.print("Valor: R$ ");
                 valor = inputValue.nextDouble();
                 if (cliente.validaSaldo(valor)) {
-                    cliente.pix(valor, listaClientes.get(i));
+                    cliente.pix(valor, cliente.getNome(), listaClientes.get(i));
                     mensagem();
                     
                 }else{

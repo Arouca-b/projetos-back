@@ -71,15 +71,16 @@ public class Conta {
         return false;
     }
 
-    public void pix(double valor, Conta recebedor){
-        this.sacar(saldo);
-        recebedor.deposito(valor);
-        transacao(valor, recebedor.getNome());
+    public void pix(double valor, String emissor, Conta destinatario){
+        this.sacar(valor);
+        destinatario.deposito(valor);
+        transacao(valor, emissor, destinatario.getNome(),  destinatario.transacoes);
+        destinatario.qtdTransacao++;
     }
 
-    public void transacao(double valor, String recebedor){
+    public void transacao(double valor, String emissor, String destinatario, ArrayList<Transacao> destino){
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        Transacao newTransacao = new Transacao(valor, recebedor, formato);
+        Transacao newTransacao = new Transacao(valor, destinatario, emissor, formato, destino);
         this.transacoes.add(newTransacao);
         this.qtdTransacao++;
     }
@@ -94,7 +95,7 @@ public class Conta {
         System.out.printf("\n\nAgencia: %s\n", this.agencia);
         System.out.printf("Conta: %s\n", this.nConta);
         System.out.printf("Nome: %s\n", this.nome);
-        System.out.printf("Saldo: %.2f\n", this.saldo);
+        System.out.printf("Saldo: R$ %.2f\n", this.saldo);
         System.out.printf("CPF: %s\n\n", this.cpf);
         System.out.println("___________________________");
     }
