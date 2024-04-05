@@ -3,6 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Conta {
+    private static int quantidade_contas; 
     private String nome;
     private String agencia;
     private String nConta;
@@ -12,6 +13,9 @@ public class Conta {
     private int qtdTransacao;
     private ArrayList<Transacao> transacoes = new ArrayList<>();
 
+    public Conta(){
+
+    }
 
     public Conta(String nome, String nConta, String agencia, String cpf, String senha) {
         this.nome = nome;
@@ -19,6 +23,11 @@ public class Conta {
         this.agencia = agencia;
         this.cpf = cpf;
         this.senha = senha;
+        quantidade_contas++;
+    }
+
+    public static int getQuantidade_contas(){
+        return quantidade_contas;
     }
 
     public void setSenha(String senha){

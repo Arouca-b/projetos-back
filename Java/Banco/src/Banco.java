@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 //Autor Breno Arouca
-//Última atualiazação: 02/03/2024
-
+//Última atualiazação: 05/04/2024
 
 
 public class Banco {
@@ -14,13 +13,14 @@ public class Banco {
     
     public static void main(String[] args) {
         ArrayList<Conta> listaClientes = new ArrayList<>();
-        Conta newConta = null;
+        Conta newConta = new Conta();
 
         String nome, cpf, conta, agencia = "092", senha;
         int op = 0, pos_cliente = 0;
 
         do {
             menu();
+            System.out.printf("%d\n\n", Conta.getQuantidade_contas());
             op = inputValue.nextInt();
             switch (op) {
                 case 1:
@@ -30,7 +30,7 @@ public class Banco {
                     System.out.print("CPF: ");
                     cpf = inputText.nextLine();
                     
-                    conta = "" + (listaClientes.size() + 1);
+                    conta = "" + (Conta.getQuantidade_contas() + 1);
                     senha = definirSenha();
 
                     //Cria a conta do cliente e adiciona na lista geral de clientes, sempre inserido no ultimo elemento
@@ -44,7 +44,7 @@ public class Banco {
                     break;
             
                 case 2:
-                    if (!listaClientes.isEmpty()) {
+                    if (Conta.getQuantidade_contas()>0) {
                         System.out.print("Insira cpf: ");
                         cpf = inputText.nextLine();
                         System.out.print("Insira senha: ");
@@ -291,14 +291,14 @@ public class Banco {
         System.out.print("Insira chave pix(cpf): ");
         chavePix = inputText.nextLine();
 
-        for(int i = 0; i < listaClientes.size() && (!feito);i++){
+        for(int i = 0; i < Conta.getQuantidade_contas() && (!feito);i++){
             if (listaClientes.get(i).getCpf().equals(chavePix) && chavePix!=cliente.getCpf()) {
                 System.out.print("Valor: R$ ");
                 valor = inputValue.nextDouble();
                 if (cliente.validaSaldo(valor)) {
                     cliente.pix(valor, cliente.getNome(), listaClientes.get(i));
                     mensagem();
-                    
+                    feito = true;
                 }else{
                     System.out.println("\n\nSALDO INDISPONÍVEL!\n\n");
                 }
