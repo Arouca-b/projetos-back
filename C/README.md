@@ -3,15 +3,15 @@
 
 ---
 
-- ### **[Editor de Imagens](https://github.com/Arouca-b/Faculdade/tree/main/projetos%20-%20C/editor-imagens)**
+- ### **[Editor de Imagens](https://github.com/Arouca-b/projetos-back/tree/main/C/editor-imagens)**
     >###### Primeiro projeto realizado, desenvolvido como um dos créditos para a disciplina de programação. Como ainda não tinha o conhecimento adequado para realizar o projeto só, a orientadora desenvolveu a biblioteca(<span style="color: red">projeto.h</span>) para "facilitar" o trabalho
     
 ---
 
-- ### **[Agenda](https://github.com/Arouca-b/Faculdade/tree/main/projetos%20-%20C/agenda)**
+- ### **[Agenda](https://github.com/Arouca-b/projetos-back/tree/main/C/agenda)**
     > ###### Desenvolvido para praticar manipulação de arquivos! Salvamento permanente de dados
 ---
-- ### **[Loja](https://github.com/Arouca-b/Faculdade/tree/main/projetos%20-%20C/loja)**
+- ### **[Loja](https://github.com/Arouca-b/projetos-back/tree/main/C/loja)**
     > ###### Último crédito para a disciplina de LP2, nesse projeto foi utilizado todo o conhecimento adquirido nesse período de estudos!  
 
 ---
